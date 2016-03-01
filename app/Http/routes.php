@@ -19,7 +19,7 @@ Route::get('about', function () {
     echo "Well Done. :)";
 });
 
-
+Route::get('/profile/{user}', 'ProfileController@show');
 
 /*
 |--------------------------------------------------------------------------
