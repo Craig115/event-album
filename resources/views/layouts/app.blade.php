@@ -58,7 +58,7 @@
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="/profile/{{ Auth::user()->id }}">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
