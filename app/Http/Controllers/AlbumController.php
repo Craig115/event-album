@@ -24,4 +24,15 @@ class AlbumController extends Controller
       return back();
   }
 
+  public function edit(Album $album)
+  {
+      return view('albums.edit', compact('album'));
+  }
+
+  public function update(Request $request, Album $album)
+  {
+      $album->update($request->all());
+
+      return back();
+  }
 }
