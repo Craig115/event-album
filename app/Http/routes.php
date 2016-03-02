@@ -21,6 +21,7 @@ Route::get('about', function () {
 
 Route::get('/profile/{user}', 'ProfileController@show');
 Route::get('/albums/{album}', 'AlbumController@show');
+Route::post('profile/{user}/albums', 'AlbumController@store');
 
 /*
 |--------------------------------------------------------------------------

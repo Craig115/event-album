@@ -28,4 +28,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Album::class);
     }
+
+    public function createAlbum(Album $album)
+    {
+        return $this->albums()->save($album);
+    }
 }

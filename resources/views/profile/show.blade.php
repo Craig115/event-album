@@ -13,6 +13,14 @@
                         <li><a href="/albums/{{ $album->id }}">{{ $album->title }}</a></li>
 
                       @endforeach
+
+                      <h3>Add a new Album</h3>
+
+                      <form method="POST" action="/profile/{{ $user->id }}/albums">
+                          <textarea name = "title"></textarea>
+                          <button type="submit">Create Album</button>
+                      </form>
+
                     </ul>
                 </div>
             </div>
