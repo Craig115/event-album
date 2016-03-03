@@ -28,6 +28,6 @@ class CreateAlbumsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('albums');
     }
 }

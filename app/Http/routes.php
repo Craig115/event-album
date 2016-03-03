@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('about', function () {
@@ -24,6 +24,7 @@ Route::get('/albums/{album}', 'AlbumController@show');
 Route::post('profile/{user}/albums', 'AlbumController@store');
 Route::get('/albums/{album}/edit', 'AlbumController@edit');
 Route::patch('albums/{album}', 'AlbumController@update');
+Route::post('albums/{album}/comments', 'CommentController@store');
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +43,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-
+    Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
 });
 

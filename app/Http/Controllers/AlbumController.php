@@ -12,6 +12,8 @@ class AlbumController extends Controller
 {
   public function show(Album $album)
   {
+    $album->load('comments.user');
+
     return view('albums.show', compact('album'));
   }
 
