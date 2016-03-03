@@ -16,11 +16,15 @@ class CommentController extends Controller
     return view('comments.show', compact('comment'));
   }
 
-  public function store(Request $request, User $user, Album $album)
+  public function store(Request $request, Album $album)
   {
-      $album->createComment(
-          new Comment($request->all())
-      );
+      $this->validate($request, [
+          'comment' => 'required',
+      ]);
+
+      $comment = new Comment($request->all());
+
+      $album->createComment($comment, 1);
 
       return back();
   }

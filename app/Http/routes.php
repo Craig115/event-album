@@ -15,22 +15,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('about', function () {
-    echo "Well Done. :)";
-});
-
-// Profile Routes
-Route::get('/profile/{user}', 'ProfileController@show');
-
-//Album Routes
-Route::get('/albums/{album}', 'AlbumController@show');
-Route::post('profile/{user}/albums', 'AlbumController@store');
-Route::get('/albums/{album}/edit', 'AlbumController@edit');
-Route::patch('albums/{album}', 'AlbumController@update');
-
-//Comment Routes
-Route::post('albums/{album}/comments', 'CommentController@store');
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -43,7 +27,19 @@ Route::post('albums/{album}/comments', 'CommentController@store');
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+
+  // Profile Routes
+  Route::get('/profile/{user}', 'ProfileController@show');
+
+  //Album Routes
+  Route::get('/albums/{album}', 'AlbumController@show');
+  Route::post('profile/{user}/albums', 'AlbumController@store');
+  Route::get('/albums/{album}/edit', 'AlbumController@edit');
+  Route::patch('albums/{album}', 'AlbumController@update');
+
+  //Comment Routes
+  Route::post('albums/{album}/comments', 'CommentController@store');
+
 });
 
 Route::group(['middleware' => 'web'], function () {

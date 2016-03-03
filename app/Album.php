@@ -18,8 +18,10 @@ class Album extends Model
       return $this->hasMany(Comment::class);
     }
 
-    public function createComment(COmment $comment)
+    public function createComment(Comment $comment, $userId)
     {
+        $comment->user_id = $userId;
+
         return $this->comments()->save($comment);
     }
 }
