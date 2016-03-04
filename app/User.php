@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'firstname', 'lastname', 'email', 'password',
     ];
 
     /**
@@ -27,6 +27,11 @@ class User extends Authenticatable
     public function albums()
     {
         return $this->hasMany(Album::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 
     public function createAlbum(Album $album)

@@ -17,6 +17,7 @@ class CreateAlbumsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->text('title');
             $table->text('description');
+            $table->integer('likes');
             $table->timestamps();
         });
     }

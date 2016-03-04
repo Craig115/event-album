@@ -12,7 +12,7 @@
 
                       <li>
                         {{ $comment->comment }}
-                        <a href="#">By: {{ $comment->user->name }}</a>
+                        <a href="#">By: {{ $comment->user->username }}</a>
                       </li>
 
                       @endforeach

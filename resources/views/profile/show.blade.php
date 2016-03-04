@@ -6,7 +6,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h1>Hi {{ $user->name }}</h1>
+                    <h1>Hi {{ $user->username }}</h1>
                     <ul>
                       @foreach ($user->albums as $album)
 

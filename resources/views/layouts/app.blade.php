@@ -59,7 +59,7 @@
                     @else
                         <li class="dropdown">
                             <a href="/profile/{{ Auth::user()->id }}">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->username }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">

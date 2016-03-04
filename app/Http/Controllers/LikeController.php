@@ -3,28 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Album;
-use App\User;
-use App\Comment;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class CommentController extends Controller
+class LikeController extends Controller
 {
-  public function show(Comment $comment)
+  public function show(Like $like)
   {
     return view('comments.show', compact('comment'));
   }
 
-  public function store(Request $request, Album $album)
+  public function store(Request $request, Like $like)
   {
       $this->validate($request, [
-          'comment' => 'required',
+          'id' => 'required',
       ]);
 
       $comment = new Comment($request->all());
 
-      $album->createComment($comment, Auth::id());
+      $album->createComment($comment, 1);
 
       return back();
   }

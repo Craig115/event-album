@@ -18,6 +18,11 @@ class Album extends Model
       return $this->hasMany(Comment::class);
     }
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
     public function createComment(Comment $comment, $userId)
     {
         $comment->user_id = $userId;

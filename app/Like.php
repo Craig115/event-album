@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Like extends Model
 {
-    protected $fillable = ['comment'];
-
-    public function user()
+    /public function user()
     {
       return $this->belongsTo(User::class);
     }
@@ -18,8 +16,8 @@ class Comment extends Model
       return $this->belongsTo(Album::class);
     }
 
-    public function like()
+    public function comment()
     {
-        return $this->hasMany(Like::class);
+      return $this->belongsTo(Comment::class);
     }
 }
