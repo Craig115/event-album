@@ -7,6 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h1>{{ $album->title }}</h1>
+                    <h3>You like this</h3>
                     <ul>
 
                       <?php $i = 0; ?>
@@ -25,13 +26,8 @@
                         <li>
                           {{ $comment->comment }} <a href="#">By: {{ $comment->user->username }}</a>
                         </li>
-                        
-                      @endforeach
 
-                      <form method="POST" action="/albums/{{ $album->id }}/likes">
-                          {{ csrf_field() }}
-                          <button type="submit">Like</button>
-                      </form>
+                      @endforeach
 
                       <h3>Add a new Comment</h3>
 

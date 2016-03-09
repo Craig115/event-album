@@ -8,30 +8,14 @@
                 <div class="panel-body">
                     <h1>{{ $album->title }}</h1>
                     <ul>
-
-                      <?php $i = 0; ?>
-
-                      @foreach ($album->likes as $like)
-
-                        <?php $i++ ?>
-
-                      @endforeach
-
-                      {{ $i }} Likes
-
-
                       @foreach ($album->comments as $comment)
 
-                        <li>
-                          {{ $comment->comment }} <a href="#">By: {{ $comment->user->username }}</a>
-                        </li>
-                        
-                      @endforeach
+                      <li>
+                        {{ $comment->comment }}
+                        <a href="#">By: {{ $comment->user->username }}</a>
+                      </li>
 
-                      <form method="POST" action="/albums/{{ $album->id }}/likes">
-                          {{ csrf_field() }}
-                          <button type="submit">Like</button>
-                      </form>
+                      @endforeach
 
                       <h3>Add a new Comment</h3>
 

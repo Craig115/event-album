@@ -20,13 +20,20 @@ class Album extends Model
 
     public function likes()
     {
-        return $this->hasMany(Like::class);
+      return $this->hasMany(Like::class);
     }
 
     public function createComment(Comment $comment, $userId)
     {
-        $comment->user_id = $userId;
+      $comment->user_id = $userId;
 
-        return $this->comments()->save($comment);
+      return $this->comments()->save($comment);
+    }
+
+    public function likeAlbum(Like $like, $userId)
+    {
+      $like->user_id = $userId;
+
+      return $this->likes()->save($like);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Album;
 use App\User;
 use App\Http\Requests;
@@ -19,9 +20,13 @@ class AlbumController extends Controller
 
   public function store(Request $request, User $user)
   {
-      $user->createAlbum(
-          new Album($request->all())
-      );
+      $this->validate($request, [
+          'title' => 'required',
+      ]);
+
+      $album = new Album($request->all());
+
+      $user->createAlbum($album, Auth::id());
 
       return back();
   }

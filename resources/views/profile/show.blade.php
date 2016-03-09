@@ -17,6 +17,7 @@
                       <h3>Add a new Album</h3>
 
                       <form method="POST" action="/profile/{{ $user->id }}/albums">
+                          {{ csrf_field() }}
                           <textarea name = "title"></textarea>
                           <button type="submit">Create Album</button>
                       </form>

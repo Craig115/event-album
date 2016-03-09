@@ -19,6 +19,7 @@ class CreateAlbumsTable extends Migration
             $table->text('description');
             $table->integer('likes');
             $table->timestamps();
+            $table->integer('like_count');
         });
     }
 

@@ -29,9 +29,9 @@ class User extends Authenticatable
         return $this->hasMany(Album::class);
     }
 
-    public function likes()
+    public function comments()
     {
-        return $this->hasMany(Like::class);
+      return $this->hasMany(Comment::class);
     }
 
     public function createAlbum(Album $album)

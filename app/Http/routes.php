@@ -40,6 +40,9 @@ Route::group(['middleware' => ['web']], function () {
   //Comment Routes
   Route::post('albums/{album}/comments', 'CommentController@store');
 
+  //Like Routes
+  Route::post('albums/{album}/likes', 'LikeController@store');
+
 });
 
 Route::group(['middleware' => 'web'], function () {

@@ -17,9 +17,4 @@ class Comment extends Model
     {
       return $this->belongsTo(Album::class);
     }
-
-    public function like()
-    {
-        return $this->hasMany(Like::class);
-    }
 }
