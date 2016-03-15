@@ -35,6 +35,8 @@
                           <button type="submit">Unlike</button>
                       </form>
 
+                      <a href="/albums/{{ $album->id }}/edit">Edit</a>
+
                       <h3>Add a new Comment</h3>
 
                       <form method="POST" action="/albums/{{ $album->id }}/comments">
@@ -42,11 +44,6 @@
                           <textarea name = "comment"></textarea>
                           <button type="submit">Create Comment</button>
                       </form>
-                    </ul>
-                    <ul>
-                      @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                      @endforeach
                     </ul>
                 </div>
             </div>

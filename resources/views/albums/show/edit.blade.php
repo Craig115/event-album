@@ -11,7 +11,7 @@
                     <form method="POST" action="/albums/{{ $album->id }}">
 
                         {{ method_field('PATCH')}}
-
+                        {{ csrf_field() }}
                         <textarea name = "title">{{ $album->title }}</textarea>
                         <button type="submit">Update</button>
                     </form>

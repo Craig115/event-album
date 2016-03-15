@@ -25,13 +25,15 @@
                         <li>
                           {{ $comment->comment }} <a href="#">By: {{ $comment->user->username }}</a>
                         </li>
-                        
+
                       @endforeach
 
                       <form method="POST" action="/albums/{{ $album->id }}/likes">
                           {{ csrf_field() }}
                           <button type="submit">Like</button>
                       </form>
+
+                      <a href="/albums/{{ $album->id }}/edit">Edit</a>
 
                       <h3>Add a new Comment</h3>
 
@@ -40,11 +42,6 @@
                           <textarea name = "comment"></textarea>
                           <button type="submit">Create Comment</button>
                       </form>
-                    </ul>
-                    <ul>
-                      @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                      @endforeach
                     </ul>
                 </div>
             </div>

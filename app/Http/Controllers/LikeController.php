@@ -15,14 +15,13 @@ use App\Repositories\AlbumRepository;
 class LikeController extends Controller
 {
 
-  public function __construct(Album $album)
+  public function store(Request $request, User $user, Album $album)
   {
-    $this->middleware('liked', ['album'  => $album]);
-  }
+    $like = new Like($request->all());
 
-  public function store(Album $album)
-  {
-    //return $album;
+    $album->likeAlbum($like, Auth::id());
+
+    return back();
   }
 
 }

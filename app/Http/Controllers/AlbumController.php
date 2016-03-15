@@ -14,15 +14,13 @@ class AlbumController extends Controller
 
   public function __construct(Album $album)
   {
-    $this->middleware('liked', ['album'  => $album]);
+    $this->middleware('liked', ['only'  =>  'show']);
   }
 
 
   public function show(Album $album)
   {
     $album->load('comments.user');
-
-    return view('albums.show', compact('album'));
   }
 
   public function store(Request $request, User $user)
@@ -40,7 +38,7 @@ class AlbumController extends Controller
 
   public function edit(Album $album)
   {
-      return view('albums.edit', compact('album'));
+      return view('albums.show.edit', compact('album'));
   }
 
   public function update(Request $request, Album $album)
