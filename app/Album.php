@@ -8,6 +8,11 @@ class Album extends Model
 {
     protected $fillable = ['title'];
 
+    public function scopeSelectAlbum($query)
+    {
+        return $query->where('id', '=', 3);
+    }
+
     public function user()
     {
       return $this->belongsTo(User::class);

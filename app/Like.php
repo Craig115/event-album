@@ -17,4 +17,14 @@ class Like extends Model
     {
       return $this->belongsTo(Album::class);
     }
+
+    public function scopeSelectLikedAlbum($query, $albumid)
+    {
+      return $query->where('album_id', '=', $albumid);
+    }
+
+    public function scopeSelectUser($query, $userid)
+   {
+       return $query->where('user_id', '=', $userid);
+   }
 }

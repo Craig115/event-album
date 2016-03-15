@@ -10,44 +10,19 @@ use DB;
 use App\Like;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Repositories\AlbumRepository;
 
 class LikeController extends Controller
 {
 
-  public function store(Request $request, Album $album, Like $like)
+  public function __construct(Album $album)
   {
-        $check = DB::table('likes')->where('album_id', '=', $album->id)->where('user_id', '=', Auth::id())->get();
+    $this->middleware('liked', ['album'  => $album]);
+  }
 
-        if($check){
-
-          foreach($check as $r){
-
-            if($r->user_id != Auth::id()){
-
-              $like = new Like($request->all());
-
-              $album->likeAlbum($like, Auth::id());
-
-              return back();
-
-            } else {
-
-              return view('albums.liked', compact('album'));
-
-            }
-
-          }
-
-        } else {
-
-          $like = new Like($request->all());
-
-          $album->likeAlbum($like, Auth::id());
-
-          return back();
-
-        }
-
+  public function store(Album $album)
+  {
+    //return $album;
   }
 
 }

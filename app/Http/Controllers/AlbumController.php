@@ -11,6 +11,13 @@ use App\Http\Controllers\Controller;
 
 class AlbumController extends Controller
 {
+
+  public function __construct(Album $album)
+  {
+    $this->middleware('liked', ['album'  => $album]);
+  }
+
+
   public function show(Album $album)
   {
     $album->load('comments.user');

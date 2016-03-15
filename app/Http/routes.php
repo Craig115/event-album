@@ -28,31 +28,24 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
 
-  // Profile Routes
-  Route::get('/profile/{user}', 'ProfileController@show');
+    // Profile Routes
+    Route::get('/profile/{user}', 'ProfileController@show');
 
-  //Album Routes
-  Route::get('/albums/{album}', 'AlbumController@show');
-  Route::post('profile/{user}/albums', 'AlbumController@store');
-  Route::get('/albums/{album}/edit', 'AlbumController@edit');
-  Route::patch('albums/{album}', 'AlbumController@update');
+    //Album Routes
+    Route::get('/albums/{album}', 'AlbumController@show');
+    Route::post('profile/{user}/albums', 'AlbumController@store');
+    Route::get('/albums/{album}/edit', 'AlbumController@edit');
+    Route::patch('albums/{album}', 'AlbumController@update');
 
-  //Comment Routes
-  Route::post('albums/{album}/comments', 'CommentController@store');
+    //Comment Routes
+    Route::post('albums/{album}/comments', 'CommentController@store');
 
-  //Like Routes
-  Route::post('albums/{album}/likes', 'LikeController@store');
+    //Like Routes
+    Route::post('albums/{album}/likes', 'LikeController@store');
 
-});
-
-Route::group(['middleware' => 'web'], function () {
+    //Auth
     Route::auth();
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
-});
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-
-    Route::get('/home', 'HomeController@index');
 });
