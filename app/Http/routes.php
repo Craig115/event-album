@@ -39,6 +39,8 @@ Route::group(['middleware' => ['web']], function () {
 
     //Comment Routes
     Route::post('albums/{album}/comments', 'CommentController@store');
+    Route::get('/comments/{comment}/edit', 'CommentController@edit');
+    Route::patch('comments/{comment}', 'CommentController@update');
 
     //Like Routes
     Route::post('albums/{album}/likes', 'LikeController@store');

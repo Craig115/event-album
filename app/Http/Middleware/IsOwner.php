@@ -17,17 +17,33 @@ class IsOwner
      */
     public function handle($request, Closure $next)
     {
-        $album = $request->album;
+        if($request->album){
 
-        if($request->album->user_id  == Auth::id()){
+            $album = $request->album;
 
-            return $next($request);
+            if($album->user_id  == Auth::id()){
 
-        } else {
+                return $next($request);
 
-            return view ('404');
+            } else {
 
+                return view ('404');
+
+            }
+
+        } elseif ($request->comment) {
+
+            $comment = $request->comment;
+
+            if($comment->user_id == Auth::id()){
+
+              return $next($request);
+
+            } else {
+
+              return view ('404');
+
+            }
         }
-
     }
 }

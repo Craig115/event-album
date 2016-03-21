@@ -23,7 +23,15 @@
                       @foreach ($album->comments as $comment)
 
                         <li>
+
                           {{ $comment->comment }} <a href="#">By: {{ $comment->user->username }}</a>
+
+                          @if($comment->user_id == Auth::id())
+
+                            <a href="/comments/{{ $comment->id }}/edit">Edit</a>
+
+                          @endif
+                          
                         </li>
 
                       @endforeach

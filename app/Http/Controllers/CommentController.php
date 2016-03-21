@@ -12,6 +12,11 @@ use App\Http\Controllers\Controller;
 
 class CommentController extends Controller
 {
+  public function __construct(Comment $comment)
+  {
+    $this->middleware('owner', ['only'  =>  'edit']);
+  }
+
   public function show(Comment $comment)
   {
     return view('comments.show', compact('comment'));
@@ -26,6 +31,18 @@ class CommentController extends Controller
       $comment = new Comment($request->all());
 
       $album->createComment($comment, Auth::id());
+
+      return back();
+  }
+
+  public function edit(Comment $comment)
+  {
+      return view('comments.edit', compact('comment'));
+  }
+
+  public function update(Request $request, Comment $comment, Album $album)
+  {
+      $comment->update($request->all());
 
       return back();
   }
