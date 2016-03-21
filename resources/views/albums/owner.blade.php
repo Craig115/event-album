@@ -7,6 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h1>{{ $album->title }}</h1>
+                    <h3>You like this</h3>
                     <ul>
 
                       <?php $i = 0; ?>
@@ -28,19 +29,6 @@
 
                       @endforeach
 
-                      You Like this
-
-                      <form method="POST" action="">
-                          {{ csrf_field() }}
-                          <button type="submit">Unlike</button>
-                      </form>
-
-                      @if ($album->user_id == Auth::id())
-
-                        <a href="/albums/{{ $album->id }}/edit">Edit</a>
-
-                      @endif
-
                       <h3>Add a new Comment</h3>
 
                       <form method="POST" action="/albums/{{ $album->id }}/comments">
@@ -48,6 +36,11 @@
                           <textarea name = "comment"></textarea>
                           <button type="submit">Create Comment</button>
                       </form>
+                    </ul>
+                    <ul>
+                      @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                      @endforeach
                     </ul>
                 </div>
             </div>

@@ -10,7 +10,7 @@ class Album extends Model
 
     public function scopeSelectAlbum($query)
     {
-        return $query->where('id', '=', 3);
+        return $query->where('album_id', '=', 3);
     }
 
     public function user()
@@ -41,4 +41,9 @@ class Album extends Model
 
       return $this->likes()->save($like);
     }
+
+    public function scopeSelectUser($query, $userid)
+   {
+       return $query->where('user_id', '=', $userid);
+   }
 }

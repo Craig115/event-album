@@ -21,7 +21,7 @@ class CheckLike
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {      
+    {
         $album = $request->album;
         $albumid = $request->album->id;
 

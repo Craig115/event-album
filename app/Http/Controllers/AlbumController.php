@@ -15,6 +15,8 @@ class AlbumController extends Controller
   public function __construct(Album $album)
   {
     $this->middleware('liked', ['only'  =>  'show']);
+
+    $this->middleware('owner', ['only'  =>  'edit']);
   }
 
 

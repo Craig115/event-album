@@ -33,7 +33,12 @@
                           <button type="submit">Like</button>
                       </form>
 
-                      <a href="/albums/{{ $album->id }}/edit">Edit</a>
+                      @if ($album->user_id == Auth::id())
+
+                        <a href="/albums/{{ $album->id }}/edit">Edit</a>
+
+                      @endif
+
 
                       <h3>Add a new Comment</h3>
 
