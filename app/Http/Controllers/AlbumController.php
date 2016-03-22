@@ -16,7 +16,10 @@ class AlbumController extends Controller
   {
     $this->middleware('liked', ['only'  =>  'show']);
 
-    $this->middleware('owner', ['only'  =>  'edit']);
+    $this->middleware('owner', ['only' => [
+        'edit',
+        'delete',
+    ]]);
   }
 
 
@@ -48,5 +51,10 @@ class AlbumController extends Controller
       $album->update($request->all());
 
       return back();
+  }
+
+  public function delete(Request $request, Album $album)
+  {
+      $album->delete($request->all());
   }
 }

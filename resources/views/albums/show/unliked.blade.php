@@ -23,7 +23,15 @@
                       @foreach ($album->comments as $comment)
 
                         <li>
+
                           {{ $comment->comment }} <a href="#">By: {{ $comment->user->username }}</a>
+
+                          @if($comment->user_id == Auth::id())
+
+                            <a href="/comments/{{ $comment->id }}/edit">Edit</a>
+
+                          @endif
+
                         </li>
 
                       @endforeach
@@ -36,6 +44,10 @@
                       @if ($album->user_id == Auth::id())
 
                         <a href="/albums/{{ $album->id }}/edit">Edit</a>
+                        <form method="POST" action="/albums/{{ $album->id }}/delete">
+                          {{ csrf_field() }}
+                          <button type="submit">Delete</button>
+                        </form>
 
                       @endif
 

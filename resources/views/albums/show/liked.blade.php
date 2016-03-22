@@ -31,7 +31,7 @@
                             <a href="/comments/{{ $comment->id }}/edit">Edit</a>
 
                           @endif
-                          
+
                         </li>
 
                       @endforeach
@@ -46,6 +46,7 @@
                       @if ($album->user_id == Auth::id())
 
                         <a href="/albums/{{ $album->id }}/edit">Edit</a>
+                        <a href="/albums/{{ $album->id }}/delete">Delete</a>
 
                       @endif
 

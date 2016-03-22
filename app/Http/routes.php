@@ -36,6 +36,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('profile/{user}/albums', 'AlbumController@store');
     Route::get('/albums/{album}/edit', 'AlbumController@edit');
     Route::patch('albums/{album}', 'AlbumController@update');
+    Route::post('/albums/{album}/delete', 'AlbumController@delete');
 
     //Comment Routes
     Route::post('albums/{album}/comments', 'CommentController@store');
