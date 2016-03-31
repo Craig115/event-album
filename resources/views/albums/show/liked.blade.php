@@ -29,6 +29,11 @@
                           @if($comment->user_id == Auth::id())
 
                             <a href="/comments/{{ $comment->id }}/edit">Edit</a>
+                            <form method="POST" action="/comments/{{ $comment->id }}">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button type="submit">Delete</button>
+                            </form>
 
                           @endif
 
@@ -46,7 +51,15 @@
 
                       @if ($album->user_id == Auth::id())
 
-                        <a href="/albums/{{ $album->id }}/edit">Edit</a>
+                      <h1>Edit Album</h1>
+
+                      <form method="POST" action="/albums/{{ $album->id }}">
+
+                          {{ method_field('PATCH')}}
+                          {{ csrf_field() }}
+                          <textarea name = "title">{{ $album->title }}</textarea>
+                          <button type="submit">Update</button>
+                      </form>
 
                       @endif
 

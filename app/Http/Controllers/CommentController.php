@@ -46,4 +46,11 @@ class CommentController extends Controller
 
       return back();
   }
+
+  public function delete(Request $request, Comment $comment)
+  {
+      $comment->delete($request->all());
+
+      return back();
+  }
 }
