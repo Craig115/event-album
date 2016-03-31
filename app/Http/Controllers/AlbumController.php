@@ -56,5 +56,7 @@ class AlbumController extends Controller
   public function delete(Request $request, Album $album)
   {
       $album->delete($request->all());
+
+      return back();
   }
 }

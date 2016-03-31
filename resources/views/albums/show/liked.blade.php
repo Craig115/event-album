@@ -38,15 +38,15 @@
 
                       You Like this
 
-                      <form method="POST" action="">
+                      <form method="POST" action="/likes/{{ $like->id }}">
                           {{ csrf_field() }}
+                          {{ method_field('DELETE') }}
                           <button type="submit">Unlike</button>
                       </form>
 
                       @if ($album->user_id == Auth::id())
 
                         <a href="/albums/{{ $album->id }}/edit">Edit</a>
-                        <a href="/albums/{{ $album->id }}/delete">Delete</a>
 
                       @endif
 

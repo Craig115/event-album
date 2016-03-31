@@ -24,4 +24,12 @@ class LikeController extends Controller
     return back();
   }
 
+  public function unlike(Request $request, Like $like)
+  {
+      $like->delete($request->all());
+
+      return back();
+  }
+
+
 }

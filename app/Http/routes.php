@@ -36,7 +36,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('profile/{user}/albums', 'AlbumController@store');
     Route::get('/albums/{album}/edit', 'AlbumController@edit');
     Route::patch('albums/{album}', 'AlbumController@update');
-    Route::post('/albums/{album}/delete', 'AlbumController@delete');
+    Route::delete('/albums/{album}', 'AlbumController@delete');
 
     //Comment Routes
     Route::post('albums/{album}/comments', 'CommentController@store');
@@ -45,6 +45,7 @@ Route::group(['middleware' => ['web']], function () {
 
     //Like Routes
     Route::post('albums/{album}/likes', 'LikeController@store');
+    Route::delete('/likes/{like}', 'LikeController@unlike');
 
     //Auth
     Route::auth();
