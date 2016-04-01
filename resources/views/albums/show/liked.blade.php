@@ -24,11 +24,12 @@
 
                         <li>
 
-                          {{ $comment->comment }} <a href="#">By: {{ $comment->user->username }}</a>
+                          {{ $comment->comment }} <a href="/profile/{{ $comment->user_id }}">By: {{ $comment->user->username }}</a>
 
                           @if($comment->user_id == Auth::id())
 
                             <a href="/comments/{{ $comment->id }}/edit">Edit</a>
+
                             <form method="POST" action="/comments/{{ $comment->id }}">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}

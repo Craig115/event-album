@@ -30,6 +30,7 @@ Route::group(['middleware' => ['web']], function () {
 
     // Profile Routes
     Route::get('/profile/{user}', 'ProfileController@show');
+    Route::post('/user/search', 'UserController@search');
 
     //Album Routes
     Route::get('/albums/{album}', 'AlbumController@show');

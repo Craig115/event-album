@@ -28,6 +28,13 @@
 <body id="app-layout">
     <nav class="navbar navbar-default">
         <div class="container">
+          
+          <form method="POST" action="/user/search">
+              {{ csrf_field() }}
+              <input type="username" class="form-control" name="username" value="">
+              <button type="submit">Search</button>
+          </form>
+
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->

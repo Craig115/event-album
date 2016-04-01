@@ -10,8 +10,13 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
 
-    public function get(){
+    public function search(Request $request)
+    {
+        $username = $request->username;
 
+        $user = User::SearchUser($username)->get();
+
+        return view('profile.results')->with('user', $user);
     }
 
 }

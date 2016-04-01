@@ -34,8 +34,18 @@ class User extends Authenticatable
       return $this->hasMany(Comment::class);
     }
 
+    public function likes()
+    {
+      return $this->hasMany(Like::class);
+    }
+
     public function createAlbum(Album $album)
     {
         return $this->albums()->save($album);
+    }
+
+    public function scopeSearchUser($query, $username)
+    {
+        return $query->where('username', 'LIKE', '%'.$username.'%');
     }
 }

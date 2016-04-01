@@ -12,7 +12,7 @@
 
                         <li><a href="/albums/{{ $album->id }}">{{ $album->title }}</a></li>
 
-                        @if ($user->id == Auth::id())
+                      @if ($user->id == Auth::id())
 
                             <form method="POST" action="/albums/{{ $album->id }}">
                               {{ csrf_field() }}
@@ -24,13 +24,17 @@
 
                       @endforeach
 
-                      <h3>Add a new Album</h3>
+                      @if ($user->id == Auth::id())
 
-                      <form method="POST" action="/profile/{{ $user->id }}/albums">
-                          {{ csrf_field() }}
-                          <textarea name = "title"></textarea>
-                          <button type="submit">Create Album</button>
-                      </form>
+                        <h3>Add a new Album</h3>
+
+                        <form method="POST" action="/profile/{{ $user->id }}/albums">
+                            {{ csrf_field() }}
+                            <textarea name = "title"></textarea>
+                            <button type="submit">Create Album</button>
+                        </form>
+
+                      @endif
 
                     </ul>
                 </div>
