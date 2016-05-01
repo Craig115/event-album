@@ -28,11 +28,25 @@ class Album extends Model
       return $this->hasMany(Like::class);
     }
 
+    public function photos()
+    {
+      return $this->hasMany(Photo::class);
+    }
+
     public function createComment(Comment $comment, $userId)
     {
       $comment->user_id = $userId;
 
       return $this->comments()->save($comment);
+    }
+
+    public function uploadImage(Photo $photo, $path, $userId)
+    {
+      $photo->user_id = $userId;
+
+      $photo->path = $path;
+
+      return $this->photos()->save($photo);
     }
 
     public function likeAlbum(Like $like, $userId)

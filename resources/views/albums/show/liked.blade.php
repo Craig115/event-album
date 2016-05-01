@@ -19,6 +19,12 @@
 
                       {{ $i }} Likes
 
+                      @foreach ($album->photos as $photo)
+
+                        <li><img src="{{ $photo->path }}"></li>
+
+                      @endforeach
+
 
                       @foreach ($album->comments as $comment)
 
@@ -60,6 +66,16 @@
                           {{ csrf_field() }}
                           <textarea name = "title">{{ $album->title }}</textarea>
                           <button type="submit">Update</button>
+                      </form>
+
+                      <h1> Upload New Image </h1>
+
+                      <form method="POST" action="/uploads/{{ $album->id}}" enctype="multipart/form-data">
+
+                          {{ csrf_field() }}
+                          <input type="file" name="fileName">
+                          <button type="submit">Upload</button>
+
                       </form>
 
                       @endif

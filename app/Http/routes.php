@@ -15,6 +15,21 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::resource('photos', 'ImageController@upload');
+
+Route::post('uploads/{album}', 'PhotoController@store');
+
+//Route::get('/image', function ()
+//{
+//  $img = Image::make('https://pbs.twimg.com/profile_images/652593675910926336/TojBqpY8.jpg');
+//  $file ='test';
+//  $path = public_path() . '/images/';
+//  $img->crop(300, 300)->save($path . 'thumbnail-' . $file);
+
+//  return Response::make($img, 200, ['Content-Type' => 'image/jpg']);
+//});
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
