@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::resource('photos', 'ImageController@upload');
+Route::resource('photos', 'PhotoController@upload');
 
 Route::post('uploads/{album}', 'PhotoController@store');
 

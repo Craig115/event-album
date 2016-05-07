@@ -9,16 +9,11 @@
                     <h1>{{ $album->title }}</h1>
                     <ul>
 
-                      <?php $i = 0; ?>
+                      @foreach ($album->photos as $photo)
 
-                      @foreach ($album->likes as $like)
-
-                        <?php $i++ ?>
+                        <li><img src="../..{{ $photo->path }}"></li>
 
                       @endforeach
-
-                      {{ $i }} Likes
-
 
                       @foreach ($album->comments as $comment)
 
@@ -57,6 +52,16 @@
                           {{ csrf_field() }}
                           <textarea name = "title">{{ $album->title }}</textarea>
                           <button type="submit">Update</button>
+                      </form>
+
+                      <h1> Upload New Image </h1>
+
+                      <form method="POST" action="/uploads/{{ $album->id}}" enctype="multipart/form-data">
+
+                          {{ csrf_field() }}
+                          <input type="file" name="fileName">
+                          <button type="submit">Upload</button>
+
                       </form>
 
                       @endif

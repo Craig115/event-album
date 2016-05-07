@@ -8,7 +8,7 @@
                 <div class="panel-body">
                   <h1> Upload New Image </h1>
 
-                  <form method="POST" action="/photos/uploads" enctype="multipart/form-data">
+                  <form method="POST" action="/uploads/2" enctype="multipart/form-data">
 
                       {{ csrf_field() }}
                       <input type="file" name="fileName">
