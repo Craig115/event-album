@@ -23,7 +23,7 @@ class CheckLike
     public function handle($request, Closure $next)
     {
         $album = $request->album;
-        
+
         $albumid = $request->album->id;
 
         $like = Like::SelectLikedAlbum($albumid)->SelectUser(Auth::id())->get();

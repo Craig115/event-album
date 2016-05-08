@@ -60,4 +60,9 @@ class Album extends Model
    {
        return $query->where('user_id', '=', $userid);
    }
+
+   public function scopeSelectAllAlbums($query)
+  {
+      return $query->orderBy('id','DESC')->limit(10);
+  }
 }

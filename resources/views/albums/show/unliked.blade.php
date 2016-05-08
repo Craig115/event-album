@@ -9,9 +9,33 @@
                     <h1>{{ $album->title }}</h1>
                     <ul>
 
+                      <?php $i = 0; ?>
+
+                      @foreach ($album->likes as $like)
+
+                        <?php $i++ ?>
+
+                      @endforeach
+
+                      {{ $i }} Likes
+
                       @foreach ($album->photos as $photo)
 
-                        <li><img src="../..{{ $photo->path }}"></li>
+                        <li>
+
+                          <img src="{{ $photo->path }}">
+
+                          @if($photo->user_id == Auth::id())
+
+                            <form method="POST" action="/photos/{{ $photo->id }}">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button type="submit">Delete</button>
+                            </form>
+
+                          @endif
+
+                        </li>
 
                       @endforeach
 
@@ -47,7 +71,6 @@
                       <h1>Edit Album</h1>
 
                       <form method="POST" action="/albums/{{ $album->id }}">
-
                           {{ method_field('PATCH')}}
                           {{ csrf_field() }}
                           <textarea name = "title">{{ $album->title }}</textarea>
@@ -57,11 +80,10 @@
                       <h1> Upload New Image </h1>
 
                       <form method="POST" action="/uploads/{{ $album->id}}" enctype="multipart/form-data">
-
                           {{ csrf_field() }}
                           <input type="file" name="fileName">
+                          <textarea name = "description"></textarea>
                           <button type="submit">Upload</button>
-
                       </form>
 
                       @endif
@@ -73,6 +95,7 @@
                           <textarea name = "comment"></textarea>
                           <button type="submit">Create Comment</button>
                       </form>
+
                     </ul>
                 </div>
             </div>

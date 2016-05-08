@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Album;
 use App\User;
+use DB;
 use Image;
 use App\Photo;
 use App\Http\Requests;
@@ -33,5 +34,14 @@ class PhotoController extends Controller
   public function upload()
   {
     return view('images.upload');
+  }
+
+  public function delete(Request $request, Photo $photo)
+  {
+    $photo = $request->photo;
+
+    $photo->delete($request->all());
+
+    return back();
   }
 }

@@ -8,7 +8,19 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    @foreach ($album as $result)
+
+                      <ul>
+                        <li>{{ $result->title }} By: {{ $result->user->username }}</li>
+
+                          @foreach ($result->photos as $photo)
+
+                            <li><img src="{{ $photo->path }}"></li>
+
+                          @endforeach
+
+                      </ul>
+                    @endforeach
                 </div>
 
             </div>

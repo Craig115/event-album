@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,8 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+        $this->middleware('recent', ['only' => 'index']);
     }
 
     /**
@@ -22,8 +25,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Album $album)
     {
-        return view('home');
     }
 }
