@@ -49,6 +49,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('uploads/{album}', 'PhotoController@store');
     Route::delete('/photos/{photo}', 'PhotoController@delete');
 
+    //Settings
+    Route::get('/settings', 'ProfileController@settings');
+    Route::patch('/settings/update/{user}', 'ProfileController@updateDetails');
+
     //Auth
     Route::auth();
     Route::get('/', 'HomeController@index');

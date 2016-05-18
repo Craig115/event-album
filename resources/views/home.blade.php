@@ -5,7 +5,13 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">
+                  Welcome, {{ Auth::user()->firstname }}
+                  <select>
+                    <option value="recent">Most Recent</option>
+                    <option value="popular">Most Popular</option>
+                  </select>
+                </div>
 
                 <div class="panel-body">
                     @foreach ($album as $result)
@@ -20,6 +26,7 @@
                           @endforeach
 
                       </ul>
+
                     @endforeach
                 </div>
 

@@ -51,5 +51,6 @@ class Kernel extends HttpKernel
         'liked' => \App\Http\Middleware\CheckLike::class,
         'owner' => \App\Http\Middleware\IsOwner::class,
         'recent' => \App\Http\Middleware\MostRecent::class,
+        'settings' => \App\Http\Middleware\ChangeSettings::class,
     ];
 }

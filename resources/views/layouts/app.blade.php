@@ -28,7 +28,7 @@
 <body id="app-layout">
     <nav class="navbar navbar-default">
         <div class="container">
-          
+
           <form method="POST" action="/user/search">
               {{ csrf_field() }}
               <input type="username" class="form-control" name="username" value="">
@@ -69,6 +69,7 @@
                                 {{ Auth::user()->username }} <span class="caret"></span>
                             </a>
                         </li>
+                        <li><a href="{{ url('/settings') }}"><i class="fa fa-btn fa-cog"></i>Settings</a></li>
                         <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                     @endif
                 </ul>
