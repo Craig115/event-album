@@ -27,7 +27,7 @@
                               @break
                             @endif
 
-                            <li><img src="{{ $photo->path }}"></li>
+                            <li><img src="{{ $photo->thumbnail }}"></li>
 
                           @endforeach
 
