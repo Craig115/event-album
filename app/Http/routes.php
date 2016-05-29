@@ -53,6 +53,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/settings', 'ProfileController@settings');
     Route::patch('/settings/update/{user}', 'ProfileController@updateDetails');
 
+    //Image Splash Pages
+    Route::get('/images/{photo}', 'PhotoController@show');
+
     //Auth
     Route::auth();
     Route::get('/', 'HomeController@index');

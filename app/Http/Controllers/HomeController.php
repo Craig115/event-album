@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Album;
+use App\Photo;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -25,7 +27,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Album $album)
+    public function index(Request $request, Album $album)
     {
+      $album = $request->session()->get('album');
+
+      return view('home', compact('album'));
     }
 }

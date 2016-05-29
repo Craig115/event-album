@@ -18,4 +18,9 @@ class Photo extends Model
     return $this->belongsTo(Album::class);
   }
 
+  public function scopeHomeFeedPhotos($query, $albumid)
+ {
+     return $query->where('album_id', '=', $albumid)->limit(5);
+ }
+
 }

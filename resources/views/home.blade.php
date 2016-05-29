@@ -19,7 +19,13 @@
                       <ul>
                         <li>{{ $result->title }} By: {{ $result->user->username }}</li>
 
+                          {{--*/ $i = 0 /*--}}
+
                           @foreach ($result->photos as $photo)
+
+                            @if(++$i > 5)
+                              @break
+                            @endif
 
                             <li><img src="{{ $photo->path }}"></li>
 

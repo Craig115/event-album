@@ -22,7 +22,7 @@
                       @foreach ($album->photos as $photo)
 
                         <li>
-                          <img src="{{ $photo->path }}">
+                          <a href="/images/{{ $photo->id }}"><img src="{{ $photo->path }}"></a>
 
                           @if($photo->user_id == Auth::id())
 

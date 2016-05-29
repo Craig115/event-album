@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Session;
 use Closure;
 use Auth;
 use App\Album;
@@ -17,11 +18,11 @@ class MostRecent
      */
     public function handle($request, Closure $next)
     {
-      $album = Album::SelectAllAlbums()->get();
+      $album = Album::SelectAllAlbums()->with('photos')->get();
 
-      $album->load('user', 'photos');
+      $request->session()->flash('album', $album);
 
-      return view('home')->with('album', $album);
+      return $next($request);
     }
 
 }

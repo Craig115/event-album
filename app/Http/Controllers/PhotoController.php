@@ -36,6 +36,11 @@ class PhotoController extends Controller
     return view('images.upload');
   }
 
+  public function show(Photo $photo)
+  {
+    return view('images.show', compact('photo'));
+  }
+
   public function delete(Request $request, Photo $photo)
   {
     $photo = $request->photo;
