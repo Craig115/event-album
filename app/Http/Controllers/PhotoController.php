@@ -8,6 +8,7 @@ use App\Album;
 use App\User;
 use DB;
 use Image;
+use File;
 use App\Photo;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -33,7 +34,6 @@ class PhotoController extends Controller
     $image->save($thumbpath);
 
     $photo = new Photo($request->all());
-
     $album->uploadImage($photo, $nicepath, $thumbnail, $userid);
 
     return back();
@@ -53,6 +53,8 @@ class PhotoController extends Controller
   {
     $photo = $request->photo;
 
+    // Delete remove the image form the server then deleted from DB
+    File::delete([public_path('../' . $photo->path), public_path('../' . $photo->thumbnail)]);
     $photo->delete($request->all());
 
     return back();
