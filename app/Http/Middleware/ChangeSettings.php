@@ -32,6 +32,7 @@ class ChangeSettings
 
         //Create a new image then store it in the profile folder
         $image = Image::make($request->file('profile_pic'));
+        $image->resize(200, 200);
         $image->save($path);
 
         $request->profile_pic = '/public/images/profile/' . $name;

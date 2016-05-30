@@ -7,17 +7,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                   Welcome, {{ Auth::user()->firstname }}
-                  <select>
-                    <option value="recent">Most Recent</option>
-                    <option value="popular">Most Popular</option>
-                  </select>
                 </div>
 
                 <div class="panel-body">
                     @foreach ($album as $result)
 
                       <ul>
-                        <li>{{ $result->title }} By: {{ $result->user->username }}</li>
+                        <li><a href="/albums/{{ $result->id }}">{{ $result->title }}</a> By: <a href="/profile/{{ $result->user->id }}">{{ $result->user->username }}</a></li>
 
                           {{--*/ $i = 0 /*--}}
 
@@ -27,7 +23,7 @@
                               @break
                             @endif
 
-                            <li><img src="{{ $photo->thumbnail }}"></li>
+                            <li><a href ="/images/{{ $photo->id }}"><img src="{{ $photo->thumbnail }}"></a></li>
 
                           @endforeach
 

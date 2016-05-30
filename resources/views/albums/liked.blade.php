@@ -24,7 +24,7 @@
                       @foreach ($album->comments as $comment)
 
                         <li>
-                          {{ $comment->comment }} <a href="#">By: {{ $comment->user->username }}</a>
+                          {{ $comment->comment }} By: <a href="/profile/{{ $comment->user->username }}">{{ $comment->user->username }}</a>
                         </li>
 
                       @endforeach

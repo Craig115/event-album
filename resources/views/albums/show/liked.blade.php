@@ -43,11 +43,17 @@
 
                         <li>
 
-                          {{ $comment->comment }} <a href="/profile/{{ $comment->user_id }}">By: {{ $comment->user->username }}</a>
+                          {{ $comment->comment }} By: <a href="/profile/{{ $comment->user_id }}">{{ $comment->user->username }}</a>
 
                           @if($comment->user_id == Auth::id())
 
-                            <a href="/comments/{{ $comment->id }}/edit">Edit</a>
+                            <form method="POST" action="/comments/{{ $comment->id }}">
+
+                                {{ method_field('PATCH')}}
+                                {{ csrf_field() }}
+                                <textarea name = "comment">{{ $comment->comment }}</textarea>
+                                <button type="submit">Update</button>
+                            </form>
 
                             <form method="POST" action="/comments/{{ $comment->id }}">
                                 {{ csrf_field() }}
