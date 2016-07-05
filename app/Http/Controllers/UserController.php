@@ -12,9 +12,7 @@ class UserController extends Controller
 
     public function search(Request $request)
     {
-        $username = $request->username;
-
-        $user = User::SearchUser($username)->get();
+        $user = User::SearchUser($request->username)->get();
 
         return view('profile.results')->with('user', $user);
     }

@@ -40,12 +40,8 @@ class Album extends Model
       return $this->comments()->save($comment);
     }
 
-    public function uploadImage(Photo $photo, $path, $thumbnail, $userId)
+    public function savePhoto(Photo $photo)
     {
-      $photo->user_id = $userId;
-      $photo->path = $path;
-      $photo->thumbnail = $thumbnail;
-
       return $this->photos()->save($photo);
     }
 

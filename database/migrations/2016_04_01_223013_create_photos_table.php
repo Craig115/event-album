@@ -16,7 +16,7 @@ class CreatePhotosTable extends Migration
           $table->increments('id');
           $table->string('path');
           $table->string('description');
-          $table->integer('likes');
+          $table->string('thumbnail');
           $table->integer('album_id')->unsigned()->index();
           $table->integer('user_id')->unsigned()->index();
           $table->timestamps();

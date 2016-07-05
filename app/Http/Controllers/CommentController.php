@@ -30,6 +30,8 @@ class CommentController extends Controller
 
       $comment = new Comment($request->all());
 
+      dd($request->all());
+
       $album->createComment($comment, Auth::id());
 
       return back();

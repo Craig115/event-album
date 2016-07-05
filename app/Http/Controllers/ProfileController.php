@@ -14,6 +14,7 @@ class ProfileController extends Controller
 
   public function __construct(User $user)
   {
+
     $this->middleware('settings', ['only'  =>  'updateDetails']);
   }
 
@@ -29,7 +30,7 @@ class ProfileController extends Controller
 
   public function updateDetails(Request $request, User $user)
   {
-    $user->update($request->all());
+    $user->update(['firstname' => $request->firstname, 'lastname' => $request->lastname, 'email' => $request->email, 'profile_pic' => $request->profile_pic->path]);
 
     return back();
   }
