@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
@@ -33,9 +34,9 @@ class Album extends Model
       return $this->hasMany(Photo::class);
     }
 
-    public function createComment(Comment $comment, $userId)
+    public function createComment(Comment $comment)
     {
-      $comment->user_id = $userId;
+      $comment->user_id = Auth::id();
 
       return $this->comments()->save($comment);
     }
@@ -45,9 +46,9 @@ class Album extends Model
       return $this->photos()->save($photo);
     }
 
-    public function likeAlbum(Like $like, $userId)
+    public function likeAlbum(Like $like)
     {
-      $like->user_id = $userId;
+      $like->user_id = Auth::id();
 
       return $this->likes()->save($like);
     }

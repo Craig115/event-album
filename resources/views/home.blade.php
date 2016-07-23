@@ -27,6 +27,14 @@
 
                           @endforeach
 
+                          @foreach ($result->comments as $comment)
+
+                            <ul>
+                              <li>{{ $comment->comment }}</li>
+                            </ul>
+
+                          @endforeach
+
                       </ul>
 
                     @endforeach

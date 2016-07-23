@@ -19,7 +19,7 @@ class LikeController extends Controller
   {
     $like = new Like($request->all());
 
-    $album->likeAlbum($like, Auth::id());
+    $album->likeAlbum($like);
 
     return back();
   }

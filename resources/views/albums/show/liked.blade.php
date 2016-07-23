@@ -7,6 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h1>{{ $album->title }}</h1>
+                    
                     <ul>
 
                       <?php $i = 0; ?>

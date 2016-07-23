@@ -6,6 +6,7 @@ use Session;
 use Closure;
 use Auth;
 use App\Album;
+use App\Comment;
 
 class MostRecent
 {
@@ -18,7 +19,7 @@ class MostRecent
      */
     public function handle($request, Closure $next)
     {
-      $album = Album::SelectAllAlbums()->with('photos')->get();
+      $album = Album::SelectAllAlbums()->with('photos', 'comments')->get();
 
       $request->session()->flash('album', $album);
 

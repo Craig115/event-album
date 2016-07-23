@@ -17,4 +17,10 @@ class Comment extends Model
     {
       return $this->belongsTo(Album::class);
     }
+
+    public function scopeSelectAlbumComments($query, $albumid)
+   {
+       return $query->where('album_id', '=', $albumid);
+   }
+
 }

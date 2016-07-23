@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Auth;
+use Session;
 use App\Album;
 use App\User;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AlbumController extends Controller
@@ -38,6 +39,8 @@ class AlbumController extends Controller
 
       $user->createAlbum($album, Auth::id());
 
+      flash('Successfully created new album.', 'success');
+
       return back();
   }
 
@@ -56,6 +59,8 @@ class AlbumController extends Controller
   public function delete(Request $request, Album $album)
   {
       $album->delete($request->all());
+
+      flash('Album has been deleted.', 'error');
 
       return back();
   }

@@ -32,7 +32,9 @@ class ChangeSettings
 
     } else {
 
-      return $next($request);
+      $request->user->update(['firstname' => $request->firstname, 'lastname' => $request->lastname, 'email' => $request->email, 'profile_pic' => Auth::user()->profile_pic]);
+
+      return back();
 
     }
 
