@@ -1,0 +1,49 @@
+#main-nav {
+  background-color: #1BBC9B;
+}
+
+body{
+  background-color: #ECF0F1;
+}
+
+#app-navbar-collapse{
+  width: 85%;
+  margin-left:auto;
+  margin-right:auto;
+  display:flex!important;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.searchbar{
+  width:50%;
+  margin-left:0;
+  margin-right:0;
+  display:flex;
+  align-self:center;
+}
+
+.searchbar button{
+  height:50%;
+  align-self:center;
+}
+
+.search{
+  background-color: #1BBC9B;
+}
+
+.form-control{
+  width:80%;
+}
+
+.navbar-left{
+  float:none!important;
+}
+
+.navbar-default .navbar-nav>li>a{
+  color:#FFF;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+  color:#FFF;
+}

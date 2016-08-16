@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,MAAM;EACJ,OAAO,EAAC,IAAI;;AAGd,eAAe;EACb,UAAU,EAAC,KAAK;;AAGlB,aAAa;EACX,UAAU,EAAC,GAAG;EACd,KAAK,EAAC,KAAK",
+"sources": ["../sass/alert.scss"],
+"names": [],
+"file": "global.css"
+}

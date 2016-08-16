@@ -5,10 +5,6 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                  Welcome, {{ Auth::user()->firstname }}
-                </div>
-
                 <div class="panel-body">
                     @foreach ($album as $result)
 
@@ -17,15 +13,19 @@
 
                           {{--*/ $i = 0 /*--}}
 
-                          @foreach ($result->photos as $photo)
+                          <ul id="home-images">
 
-                            @if(++$i > 5)
-                              @break
-                            @endif
+                            @foreach ($result->photos as $photo)
 
-                            <li><a href ="/images/{{ $photo->id }}"><img src="{{ $photo->thumbnail }}"></a></li>
+                              @if(++$i > 5)
+                                @break
+                              @endif
 
-                          @endforeach
+                              <li><a href ="/images/{{ $photo->id }}"><img src="{{ $photo->thumbnail }}"></a></li>
+
+                            @endforeach
+
+                         </ul>
 
                           @foreach ($result->comments as $comment)
 

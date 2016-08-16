@@ -21,12 +21,16 @@ class LikeController extends Controller
 
     $album->likeAlbum($like);
 
+    flash('You like this album.', 'success');
+
     return back();
   }
 
   public function unlike(Request $request, Like $like)
   {
       $like->delete($request->all());
+
+      flash('Unliked album.', 'error');
 
       return back();
   }

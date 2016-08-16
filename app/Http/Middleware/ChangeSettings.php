@@ -34,6 +34,8 @@ class ChangeSettings
 
       $request->user->update(['firstname' => $request->firstname, 'lastname' => $request->lastname, 'email' => $request->email, 'profile_pic' => Auth::user()->profile_pic]);
 
+      flash('Your details have now been updated.', 'success');
+
       return back();
 
     }

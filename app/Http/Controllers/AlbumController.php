@@ -53,6 +53,8 @@ class AlbumController extends Controller
   {
       $album->update($request->all());
 
+      flash('Album details have been updated.', 'success');
+
       return back();
   }
 

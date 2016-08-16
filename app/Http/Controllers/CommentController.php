@@ -32,6 +32,8 @@ class CommentController extends Controller
 
       $album->createComment($comment);
 
+      flash('Your comment has been added.', 'success');
+
       return back();
   }
 
@@ -44,12 +46,16 @@ class CommentController extends Controller
   {
       $comment->update($request->all());
 
+      flash('Comment updated.', 'success');
+
       return back();
   }
 
   public function delete(Request $request, Comment $comment)
   {
       $comment->delete($request->all());
+
+      flash('Your comment has been deleted.', 'error');
 
       return back();
   }

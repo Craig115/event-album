@@ -1,0 +1,23 @@
+#login-heading{
+  color:#1BBC9B;
+  text-align:center;
+  font-size:2em;
+  border-width: 0px;
+  background-color:inherit;
+}
+
+#login-panel{
+  width:50%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.row{
+  display:flex;
+  justify-content: center;
+}
+
+#login-panel .panel-default{
+  border-radius: 25px;
+  border: 0.1em solid #CCC;
+}

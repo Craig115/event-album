@@ -13,7 +13,11 @@
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="/css/app.css" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/app.js"></script>
 
     <style>
         body {
@@ -26,14 +30,8 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default">
+    <nav id= "main-nav" class="navbar navbar-default">
         <div class="container">
-
-          <form method="POST" action="/user/search">
-              {{ csrf_field() }}
-              <input type="username" class="form-control" name="username" value="">
-              <button type="submit">Search</button>
-          </form>
 
             <div class="navbar-header">
 
@@ -45,17 +43,19 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
-                </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-left">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                 </ul>
+
+                <form class="searchbar" method="POST" action="/user/search">
+                    {{ csrf_field() }}
+                    <input type="username" class="form-control" name="username" value="">
+                    <button class="search" type="submit"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+                </form>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">

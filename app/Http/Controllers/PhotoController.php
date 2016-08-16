@@ -45,6 +45,8 @@ class PhotoController extends Controller
     File::delete([public_path('../' . $photo->path), public_path('../' . $photo->thumbnail)]);
     $photo->delete($request->all());
 
+    flash('Photo has been deleted.', 'error');
+
     return back();
   }
 }

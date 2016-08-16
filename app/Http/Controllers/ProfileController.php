@@ -32,6 +32,8 @@ class ProfileController extends Controller
   {
     $user->update(['firstname' => $request->firstname, 'lastname' => $request->lastname, 'email' => $request->email, 'profile_pic' => $request->profile_pic->path]);
 
+    flash('Your details have now been updated.', 'success');
+
     return back();
   }
 

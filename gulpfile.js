@@ -1,5 +1,7 @@
 var elixir = require('laravel-elixir');
 
+require('es6-promise').polyfill();
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -13,4 +15,6 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss');
+
+    mix.scripts(['../../../node_modules/jquery/dist/jquery.min.js'],'public/js/jquery.js');
 });

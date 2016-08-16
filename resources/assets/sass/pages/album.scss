@@ -1,0 +1,29 @@
+.image-row{
+  display:flex;
+  flex-direction: row;
+}
+
+.image-container{
+  margin-right:20px;
+}
+
+form.comment{
+  display:none;
+}
+
+.toggle{
+  display:none;
+}
+
+.admin-options{
+  display:flex;
+  flex-direction: row;
+}
+
+.comment-container{
+  display:flex;
+}
+
+textarea.comment{
+  display:flex;
+}

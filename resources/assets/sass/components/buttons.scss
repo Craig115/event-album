@@ -1,0 +1,31 @@
+#login{
+  background-color:#1BBC9B;
+  border-color:inherit;
+}
+
+.btn-link:focus, .btn-link:hover{
+  color:#1BBC9B;
+}
+
+a.btn.btn-link{
+  color:#1BBC9B;
+}
+
+button{
+  background-color: #FFF;
+  border-width: 0px;
+}
+
+.album button{
+  order:1;
+}
+
+button.btn-primary{
+  background-color: #1BBC9B;
+  border-width: 0px;
+}
+
+button.btn-primary:hover{
+  background-color: #1BBC9B;
+  border-width: 0px;
+}

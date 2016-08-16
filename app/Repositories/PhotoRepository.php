@@ -60,6 +60,8 @@ class PhotoRepository implements PhotoRepositoryInterface {
     $photo->thumbnail = '/public/images/thumb/' . $this->request->name;
 
     $this->request->album->savePhoto($photo);
+
+    return back();
   }
 
 }

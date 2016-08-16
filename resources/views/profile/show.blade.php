@@ -9,39 +9,50 @@
                 @include ('flash')
 
                 <div class="panel-body">
-                    <h1>Hi {{ $user->username }}</h1>
 
-                    <img src="{{ $user->profile_pic}}"/>
-                    <ul>
+                    <div class="profile-head">
+                      <img id="profile" src="{{ $user->profile_pic}}"/>
+                      <h1>{{ $user->username }}</h1>
+                    </div>
+
+                    <h1 id="album-tag">Albums</h1>
+
+                    <ul class="album-row">
+
                       @foreach ($user->albums as $album)
 
-                        <li><a href="/albums/{{ $album->id }}">{{ $album->title }}</a></li>
+                        <li class="album">
 
-                      @if ($user->id == Auth::id())
+                          <a href="/albums/{{ $album->id }}">{{ $album->title }}</a>
 
-                            <form method="POST" action="/albums/{{ $album->id }}">
-                              {{ csrf_field() }}
-                              {{ method_field('DELETE') }}
-                              <button type="submit">Delete</button>
-                            </form>
+                          @if ($user->id == Auth::id())
 
-                        @endif
+                              <form method="POST" action="/albums/{{ $album->id }}">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button type="submit"><i class="fa fa-times" aria-hidden="true"></i></button>
+                              </form>
+
+                          @endif
+
+                        </li>
 
                       @endforeach
 
-                      @if ($user->id == Auth::id())
-
-                        <h3>Add a new Album</h3>
-
-                        <form method="POST" action="/profile/{{ $user->id }}/albums">
-                            {{ csrf_field() }}
-                            <textarea name = "title"></textarea>
-                            <button type="submit">Create Album</button>
-                        </form>
-
-                      @endif
-
                     </ul>
+
+                    @if ($user->id == Auth::id())
+
+                      <h4>Add a new Album <button id="create-album" class="form-toggle"><i id="create-album" class="fa fa-chevron-circle-down" aria-hidden="true"></i></button></h4>
+
+                      <form id="create-album" class="toggle" method="POST" action="/profile/{{ $user->id }}/albums">
+                          {{ csrf_field() }}
+                          <textarea class="form-control" name = "title" placeholder="Name"></textarea></br>
+                          <button class="btn btn-primary" type="submit">Create Album</button>
+                      </form>
+
+                    @endif
+
                 </div>
             </div>
         </div>
